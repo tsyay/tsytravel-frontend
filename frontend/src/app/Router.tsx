@@ -1,10 +1,16 @@
-import { Routes, Route } from "react-router-dom";
-import Layout from "./Layout";
+import { createBrowserRouter } from "react-router-dom";
+import { MainLayout } from "../shared/layout/MainLayout/MainLayout";
 
-export default function Router() {
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}></Route>
-    </Routes>
-  );
-}
+export const router = createBrowserRouter([
+  {
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+      },
+      {
+        path: "/about",
+      },
+    ],
+  },
+]);
