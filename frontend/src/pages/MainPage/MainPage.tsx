@@ -7,11 +7,21 @@ import { InteractiveMap } from "../../widgets/InteractiveMap";
 export default function MainPage() {
   return (
     <>
-      <Hero />
-      <WhyBuryatia />
-      <TourFormats />
-      <TopTours />
-      <InteractiveMap/>
+      <section data-header-theme="dark">
+        <Hero />
+      </section>
+      <section data-header-theme="light">
+        <WhyBuryatia />
+      </section>
+      <section data-header-theme="dark">
+        <TourFormats />
+      </section>
+      <section data-header-theme="light">
+        <TopTours />
+      </section>
+      <section data-header-theme="dark">
+        <InteractiveMap />
+      </section>
     </>
   );
 }
