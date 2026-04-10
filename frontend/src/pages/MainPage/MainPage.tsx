@@ -1,14 +1,15 @@
 import Hero from "../../widgets/Hero";
-import { Grid, Container } from "../../shared/layout";
 import { WhyBuryatia } from "../../widgets/WhyBuryatia";
 import { TourFormats } from "../../widgets/TourFormats";
+import { TopTours } from "../../widgets/TopTours";
 
 export default function MainPage() {
   return (
     <>
       <Hero />
       <WhyBuryatia />
-      <TourFormats/>
+      <TourFormats />
+      <TopTours />
     </>
   );
 }
