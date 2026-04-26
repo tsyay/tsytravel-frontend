@@ -1,0 +1,1 @@
+export { ToursHero } from "./ui/ToursHero";

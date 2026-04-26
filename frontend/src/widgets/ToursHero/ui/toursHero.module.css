@@ -1,0 +1,120 @@
+.hero {
+  position: relative;
+  width: 100%;
+  padding: 140px 0 64px;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+  filter: brightness(0.55) saturate(0.8);
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 12, 8, 0.5) 0%,
+    rgba(20, 12, 8, 0.3) 60%,
+    rgba(20, 12, 8, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  font-style: normal;
+  color: var(--color-milk);
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(242, 237, 228, 0.65);
+  margin: 0;
+  text-align: center;
+}
+
+.searchBox {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin-top: 12px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-brown-mid);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 48px 16px 52px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: white;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-brown);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
+  outline: none;
+  transition: box-shadow 200ms ease;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.35);
+}
+
+.searchInput::placeholder {
+  color: rgba(107, 88, 69, 0.5);
+}
+
+.searchClear {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-brown-mid);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px;
+}
+
+@media (max-width: 640px) {
+  .inner { padding: 0 20px; }
+  .hero { padding: 120px 0 48px; }
+}

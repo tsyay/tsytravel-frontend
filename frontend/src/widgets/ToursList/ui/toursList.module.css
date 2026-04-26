@@ -1,0 +1,346 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resultsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.resultsCount {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-brown-mid);
+}
+
+.resultsCount strong {
+  color: var(--color-brown);
+  font-weight: 700;
+}
+
+.sortGroup {
+  display: flex;
+  gap: 4px;
+  background: white;
+  border-radius: var(--radius-full);
+  padding: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sortBtn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-brown-mid);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+
+.sortBtn:hover { color: var(--color-brown); }
+
+.sortBtnActive {
+  background: var(--color-brown);
+  color: white;
+  font-weight: 500;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.cardImage {
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 500ms ease;
+}
+
+.card:hover .cardImage img { transform: scale(1.05); }
+
+.cardBadges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.badgeBest {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: white;
+  background: #C0392B;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.badgeNew {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--color-olive);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.cardBody {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.difficulty {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid;
+}
+
+.category {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-brown-mid);
+  background: var(--color-milk);
+  border: 1px solid var(--color-beige);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.star {
+  font-size: 13px;
+  color: #D4AF37;
+}
+
+.ratingValue {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-brown);
+  margin-left: 4px;
+}
+
+.cardTitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--color-brown);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cardDescription {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-brown-mid);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardHighlights {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.highlight {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-olive-dark);
+  background: rgba(143, 166, 122, 0.12);
+  border: 1px solid rgba(143, 166, 122, 0.25);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-beige-light);
+}
+
+.cardInfo {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cardInfoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardInfoLabel {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(107, 88, 69, 0.6);
+}
+
+.cardInfoValue {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-brown);
+}
+
+.cardPrice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.priceFrom {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-brown-mid);
+}
+
+.priceValue {
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-brown);
+  white-space: nowrap;
+}
+
+.cardCta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  background: var(--color-olive);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  transition: background 200ms ease;
+  white-space: nowrap;
+}
+
+.cardCta:hover { background: var(--color-olive-dark); }
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.emptyIcon { font-size: 48px; }
+
+.emptyTitle {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin: 0;
+}
+
+.emptyText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-brown-mid);
+  margin: 0;
+}
+
+.emptyReset {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  background: var(--color-olive);
+  border: none;
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 200ms ease;
+}
+
+.emptyReset:hover { background: var(--color-olive-dark); }
+
+@media (max-width: 768px) {
+  .card { grid-template-columns: 1fr; }
+  .cardImage { min-height: 200px; max-height: 220px; }
+  .resultsHeader { flex-direction: column; align-items: flex-start; }
+  .sortGroup { overflow-x: auto; width: 100%; }
+}
