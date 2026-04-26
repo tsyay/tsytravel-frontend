@@ -1,0 +1,241 @@
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.scrollSpace {
+  height: 120vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 0;
+  filter: blur(3px) brightness(0.85);
+  transform: scale(1.04);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    transparent 35%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.textGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 48px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-beige-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px 28px;
+  pointer-events: auto;
+}
+
+.number {
+  font-family: var(--font-body);
+  font-size: 40px;
+  font-weight: 800;
+  font-style: normal;
+  color: rgba(61, 50, 40, 0.12);
+  line-height: 1;
+  user-select: none;
+  margin-bottom: 8px;
+}
+
+.textTitle {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.4vw, 22px);
+  font-weight: 700;
+  font-style: normal;
+  color: var(--color-brown);
+  margin: 0 0 10px;
+  line-height: 1.2;
+  text-shadow: none;
+}
+
+.textBody {
+  font-family: var(--font-body);
+  font-size: clamp(12px, 0.85vw, 14px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.75;
+  color: var(--color-brown-mid);
+  margin: 0;
+  text-shadow: none;
+}
+
+/* ── Земля + машина ── */
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ── Линии скорости ── */
+.speedLines {
+  position: absolute;
+  left: 0;
+  bottom: 120px;
+  height: 280px;
+  width: 280px;
+  z-index: 1;
+  opacity: 0;
+  transform-origin: right center;
+  pointer-events: none;
+}
+
+.speedLine {
+  position: absolute;
+  left: 0;
+  height: 1.5px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.7) 40%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  border-radius: 2px;
+  animation: speedPulse 0.12s ease-in-out infinite alternate;
+}
+
+@keyframes speedPulse {
+  from { opacity: 0.15; transform: scaleX(0.7); }
+  to   { opacity: 1;    transform: scaleX(1);   }
+}
+
+/* ── Машина ── */
+.car {
+  position: absolute;
+  left: 0;
+  height: 280px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  will-change: transform;
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.4));
+  z-index: 2;
+  bottom: 118px;
+}
+
+/* ── Третий блок — прицеп ── */
+.trailerBlock {
+  position: absolute;
+  left: 0;
+  bottom: 148px;
+  width: 320px;
+  background-color: var(--color-beige-light);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px 24px;
+  will-change: transform;
+  z-index: 1;
+  box-shadow: var(--shadow-lg);
+}
+
+.trailerBlock .number {
+  font-size: 32px;
+}
+
+.trailerBlock .textTitle {
+  font-size: clamp(14px, 1.2vw, 18px);
+}
+
+.trailerBlock .textBody {
+  font-size: clamp(11px, 0.8vw, 13px);
+}
+
+.terrainWrapper {
+  position: relative;
+  width: 100%;
+  height: 120px;
+}
+
+.terrainOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.grassImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .textGrid {
+    grid-template-columns: 1fr 1fr;
+    padding: 100px 32px 0;
+    gap: 16px;
+  }
+
+  .car { height: 200px; bottom: 98px; }
+  .speedLines { height: 200px; bottom: 98px; }
+  .trailerBlock { height: auto; bottom: 120px; width: 260px; }
+}
+
+@media (max-width: 640px) {
+  .textGrid {
+    grid-template-columns: 1fr;
+    padding: 80px 20px 0;
+  }
+
+  .car { height: 150px; bottom: 88px; }
+  .speedLines { height: 150px; bottom: 88px; }
+  .trailerBlock { width: 220px; bottom: 108px; }
+
+  .terrainWrapper { height: 90px; }
+  .grassImg { height: 90px; }
+}
