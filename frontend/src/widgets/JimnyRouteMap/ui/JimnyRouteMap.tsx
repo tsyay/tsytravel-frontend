@@ -122,6 +122,9 @@ export function JimnyRouteMap() {
   const mapRef = useRef<any>(null);
   const [activePoint, setActivePoint] = useState<RoutePoint | null>(ROUTE_POINTS[0]);
   const [activeDay, setActiveDay] = useState<number | "all">("all");
+  const [mapActive, setMapActive] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+  const hintTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (mapRef.current || !mapContainerRef.current) return;
@@ -135,6 +138,12 @@ export function JimnyRouteMap() {
         zoom: 7,
         zoomControl: false,
         attributionControl: false,
+        scrollWheelZoom: false,
+        dragging: false,
+        touchZoom: false,
+        doubleClickZoom: false,
+        boxZoom: false,
+        keyboard: false,
       });
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -143,7 +152,6 @@ export function JimnyRouteMap() {
 
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
-      // Линии маршрута по дням
       const days = [1, 2, 3];
       days.forEach((day) => {
         const dayPoints = ROUTE_POINTS.filter((p) => p.day === day);
@@ -158,7 +166,6 @@ export function JimnyRouteMap() {
         }
       });
 
-      // Маркеры
       ROUTE_POINTS.forEach((point) => {
         const color = DAY_COLORS[point.day];
 
@@ -207,6 +214,38 @@ export function JimnyRouteMap() {
     };
   }, []);
 
+  const enableMap = () => {
+    const map = mapRef.current;
+    if (!map) return;
+    setMapActive(true);
+    map.scrollWheelZoom.enable();
+    map.dragging.enable();
+    map.touchZoom.enable();
+    map.doubleClickZoom.enable();
+    map.boxZoom.enable();
+    map.keyboard.enable();
+  };
+
+  const disableMap = () => {
+    const map = mapRef.current;
+    if (!map) return;
+    setMapActive(false);
+    map.scrollWheelZoom.disable();
+    map.dragging.disable();
+    map.touchZoom.disable();
+    map.doubleClickZoom.disable();
+    map.boxZoom.disable();
+    map.keyboard.disable();
+  };
+
+  const handleWheel = () => {
+    if (!mapActive) {
+      if (hintTimerRef.current) clearTimeout(hintTimerRef.current);
+      setShowHint(true);
+      hintTimerRef.current = setTimeout(() => setShowHint(false), 2000);
+    }
+  };
+
   const filteredPoints = activeDay === "all"
     ? ROUTE_POINTS
     : ROUTE_POINTS.filter((p) => p.day === activeDay);
@@ -225,9 +264,7 @@ export function JimnyRouteMap() {
           <div className={styles.headerLeft}>
             <span className={styles.tag}>Маршрут · 3 дня</span>
             <h2 className={styles.heading}>Маршрут тура</h2>
-            <p className={styles.subheading}>
-              Улан-Удэ — Хамар-Дабан — Байкал — Аршан
-            </p>
+            <p className={styles.subheading}>Улан-Удэ — Хамар-Дабан — Байкал — Аршан</p>
           </div>
 
           <div className={styles.dayFilters}>
@@ -252,7 +289,6 @@ export function JimnyRouteMap() {
         </div>
 
         <div className={styles.layout}>
-          {/* Боковая панель */}
           <aside className={styles.sidebar}>
             <div className={styles.pointList}>
               {filteredPoints.map((point) => (
@@ -278,7 +314,6 @@ export function JimnyRouteMap() {
               ))}
             </div>
 
-            {/* Карточка активной точки */}
             {activePoint && (
               <div className={styles.card}>
                 <div className={styles.cardImage}>
@@ -301,9 +336,33 @@ export function JimnyRouteMap() {
             )}
           </aside>
 
-          {/* Карта */}
-          <div className={styles.mapWrapper}>
+          <div
+            className={`${styles.mapWrapper} ${mapActive ? styles.mapActive : ""}`}
+            onClick={enableMap}
+            onMouseLeave={disableMap}
+            onWheel={handleWheel}
+          >
             <div ref={mapContainerRef} className={styles.map} />
+
+            {!mapActive && (
+              <div className={styles.mapOverlay}>
+                <div className={styles.mapOverlayContent}>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="white" strokeWidth="1.5" fill="none"/>
+                    <circle cx="12" cy="9" r="2.5" stroke="white" strokeWidth="1.5"/>
+                  </svg>
+                  <span className={styles.mapOverlayText}>Нажмите чтобы взаимодействовать с картой</span>
+                </div>
+              </div>
+            )}
+
+            <div className={`${styles.scrollHint} ${showHint ? styles.scrollHintVisible : ""}`}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <rect x="8" y="2" width="8" height="14" rx="4" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M12 6v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+              Нажмите на карту для управления масштабом
+            </div>
           </div>
         </div>
       </div>

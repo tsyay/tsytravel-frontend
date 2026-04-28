@@ -10,8 +10,10 @@ export default function JimnyTourPage() {
       <section data-header-theme="dark">
         <JimnyHero />
         <JimnyDriving />
-        <JimnyRouteMap />
       </section>
+        <section data-header-theme="light">
+          <JimnyRouteMap />
+        </section>
     </>
   );
 }

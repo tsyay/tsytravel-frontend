@@ -1,4 +1,3 @@
-/* src/widgets/JimnyRouteMap/ui/jimnyRouteMap.module.css */
 .section {
   background-color: var(--color-milk);
   padding: 96px 0;
@@ -10,7 +9,6 @@
   padding: 0 48px;
 }
 
-/* ── Шапка ── */
 .header {
   display: flex;
   align-items: flex-end;
@@ -59,7 +57,6 @@
   margin: 0;
 }
 
-/* ── Фильтры дней ── */
 .dayFilters {
   display: flex;
   gap: 8px;
@@ -89,7 +86,6 @@
   font-weight: 600;
 }
 
-/* ── Лейаут ── */
 .layout {
   display: grid;
   grid-template-columns: 360px 1fr;
@@ -97,7 +93,6 @@
   height: 640px;
 }
 
-/* ── Сайдбар ── */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -173,7 +168,6 @@
   color: var(--color-brown-mid);
 }
 
-/* ── Карточка ── */
 .card {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -251,17 +245,84 @@
   margin: 0;
 }
 
-/* ── Карта ── */
 .mapWrapper {
   border-radius: var(--radius-lg);
   overflow: hidden;
   position: relative;
   z-index: 0;
+  cursor: pointer;
+  transition: box-shadow 300ms ease;
+}
+
+.mapWrapper.mapActive {
+  cursor: default;
+  box-shadow: 0 0 0 2px #C0392B;
 }
 
 .map {
   width: 100%;
   height: 100%;
+}
+
+.mapOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+}
+
+.mapOverlayContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(20, 12, 8, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+}
+
+.mapOverlayText {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(20, 12, 8, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.scrollHintVisible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .map :global(.leaflet-tile-pane) {
