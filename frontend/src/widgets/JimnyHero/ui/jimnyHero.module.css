@@ -142,7 +142,7 @@
   padding: 14px 32px;
   border-radius: var(--radius-md);
   transition: background 250ms ease, transform 250ms ease, box-shadow 250ms ease;
-  box-shadow: 0 4px 20px rgba(192, 57, 43, 0.4);
+  box-shadow: 0 4px 20px var(--color-olive);
 }
 
 .ctaPrimary:hover {

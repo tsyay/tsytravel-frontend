@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./header.module.css";
 
 const NAV_LINKS = [
-  { label: "Туры", href: "#tours" },
+  { label: "Туры", href: "/tours" },
   { label: "О нас", href: "#about" },
   { label: "Маршруты", href: "#routes" },
   { label: "Контакты", href: "#contacts" },
