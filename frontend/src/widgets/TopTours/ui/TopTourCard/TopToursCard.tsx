@@ -5,10 +5,9 @@ import { useRef, useCallback } from "react";
 type Props = {
   topTour: topTour;
   index: number;
-  reversed?: boolean;
 };
 
-export function TopToursCard({ topTour, index, reversed = false }: Props) {
+export function TopToursCard({ topTour, index }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const rafRef = useRef<number>(0);
@@ -24,10 +23,7 @@ export function TopToursCard({ topTour, index, reversed = false }: Props) {
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-      const moveX = x * 28;
-      const moveY = y * 18;
-
-      img.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.12)`;
+      img.style.transform = `translate(${x * 24}px, ${y * 16}px) scale(1.2)`;
     });
   }, []);
 
@@ -41,46 +37,43 @@ export function TopToursCard({ topTour, index, reversed = false }: Props) {
   return (
     <div
       ref={cardRef}
-      className={`${style.card} ${reversed ? style.reversed : ""}`}
+      className={style.card}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
-      <div className={style.imageBox}>
-        <img
-          src={topTour.background}
-          alt=""
-          className={style.bgImage}
-          draggable={false}
-        />
+      {/* Размытый статичный фон */}
+      <img
+        src={topTour.background}
+        alt=""
+        className={style.bgImage}
+        draggable={false}
+      />
 
-        <img
-          ref={imageRef}
-          src={topTour.image}
-          alt={topTour.title}
-          className={style.parallaxImage}
-          draggable={false}
-        />
+      {/* Параллакс картинка */}
+      <img
+        ref={imageRef}
+        src={topTour.image}
+        alt={topTour.title}
+        className={style.parallaxImage}
+        draggable={false}
+      />
 
-        <div className={style.imageOverlay} />
-      </div>
+      {/* Виньетка */}
+      <div className={style.vignette} />
 
-      <div className={style.text}>
+      {/* Контент */}
+      <div className={style.content}>
         <span className={style.index}>0{index + 1}</span>
-        <div className={style.divider} />
-        <h3 className={style.heading}>{topTour.title}</h3>
-        <p className={style.description}>{topTour.description}</p>
-        <a href="#" className={style.cta}>
-          <span>Узнать подробнее</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M3 8h10M9 4l4 4-4 4"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
+        <div className={style.bottom}>
+          <h3 className={style.heading}>{topTour.title}</h3>
+          <p className={style.description}>{topTour.description}</p>
+          <a href="#" className={style.cta}>
+            Узнать подробнее
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   );
