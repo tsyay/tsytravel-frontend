@@ -1,5 +1,10 @@
-import baikal from "../../../assets/hero/baikal.jpg";
-import bereg from "../../../assets/hero/bereg.png";
+import baikal from "../../../assets/topTours/baikal.jpg";
+import bereg from "../../../assets/topTours/bereg.png";
+import yurta from "../../../assets/topTours/yurta.png";
+import step from "../../../assets/topTours/step.jpg";
+import buuzy from "../../../assets/topTours/buuzy.png";
+import fon from "../../../assets/topTours/cherniyFon.jpg";
+
 
 export type topTour = {
   title: string;
@@ -17,17 +22,17 @@ export const TOP_TOURS: topTour[] = [
       "Откройте для себя уникальное путешествие, где природа, культура и традиции соединяются в незабываемый опыт. Идеальный тур для тех, кто хочет увидеть больше и почувствовать настоящее приключение.",
   },
   {
-    title: "Самый сок!",
-    image: bereg,
-    background: baikal,
-    description:
-      "Откройте для себя уникальное путешествие, где природа, культура и традиции соединяются в незабываемый опыт. Идеальный тур для тех, кто хочет увидеть больше и почувствовать настоящее приключение.",
-  },
+  title: "Стать кочевником за 3 дня",
+  image: yurta,
+  background: step,
+  description:
+    "Никаких офисов. Только степь, кони и ощущение свободы. Проживёшь жизнь настоящего кочевника — без Wi-Fi, зато с максимальным внутренним апдейтом.",
+},
   {
-    title: "Самый сок!",
-    image: bereg,
-    background: baikal,
-    description:
-      "Откройте для себя уникальное путешествие, где природа, культура и традиции соединяются в незабываемый опыт. Идеальный тур для тех, кто хочет увидеть больше и почувствовать настоящее приключение.",
-  },
+  title: "Бууз-трип 🍽️",
+  image: buuzy,
+  background: fon,
+  description:
+    "Да, мы едем в Бурятию ради бууз. И шаманских вайбов. И Байкала. И видов, которые выглядят как заставка Windows, только настоящая.",
+}
 ];

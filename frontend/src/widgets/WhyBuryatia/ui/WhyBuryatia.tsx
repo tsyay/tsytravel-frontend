@@ -1,6 +1,6 @@
 import styles from "./WhyBuryatia.module.css";
-import baikal from "../../../assets/hero/baikal.jpg";
-import sayani from "../../../assets/hero/sayani.webp";
+import baikal from "../../../assets/WhyBuryatia/baikal.jpg";
+import budda from "../../../assets/WhyBuryatia/budda.png";
 import bg from "../../../assets/backgrounds/buryatia_no_background.png"
 const PHOTOS = [
   {
@@ -8,7 +8,7 @@ const PHOTOS = [
     alt: "Байкал",
   },
   {
-    src: sayani,
+    src: budda,
     alt: "Дацан",
   },
 ];

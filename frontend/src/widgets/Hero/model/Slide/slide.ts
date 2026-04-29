@@ -1,4 +1,4 @@
-import sayani from "../../../../assets/hero/sayani.webp";
+import sayani from "../../../../assets/hero/sayani.jpg";
 import baikal from "../../../../assets/hero/baikal.jpg";
 
 export type Slide = {

@@ -1,5 +1,5 @@
 import styles from "./toursHero.module.css";
-import jimny from "../../../assets/hero/sayani.webp";
+import jimny from "../../../assets/hero/sayani.jpg";
 
 type Props = {
   search: string;

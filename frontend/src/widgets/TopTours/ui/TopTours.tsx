@@ -1,7 +1,7 @@
 import style from "./topTours.module.css";
 import { TOP_TOURS } from "../model/topTours";
 import { TopToursCard } from "./TopTourCard/TopToursCard";
-import baikal from "../../../assets/hero/baikal.jpg";
+import sayani from "../../../assets/hero/sayani.jpg";
 
 export function TopTours() {
   return (
@@ -22,7 +22,7 @@ export function TopTours() {
 
           {/* Четвёртая ячейка — большое фото */}
           <div className={style.featuredImage}>
-            <img src={baikal} alt="Бурятия" className={style.featuredImg} />
+            <img src={sayani} alt="Бурятия" className={style.featuredImg} />
             <div className={style.featuredOverlay} />
             <div className={style.featuredText}>
               <span className={style.featuredLabel}>Откройте Бурятию</span>

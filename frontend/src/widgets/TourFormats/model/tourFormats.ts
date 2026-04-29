@@ -1,11 +1,34 @@
-import nebo from "../../../assets/tourFormats/nebo.avif"
-import hram from "../../../assets/tourFormats/hram.png"
+import nebo from "../../../assets/tourFormats/nebo.avif";
+import hram from "../../../assets/tourFormats/hram.png";
+import jimny from "../../../assets/tourFormats/jimny.png";
+import skali from "../../../assets/tourFormats/skali.jpg";
+import loshad from "../../../assets/tourFormats/loshad.png";
+import step from "../../../assets/tourFormats/step.jpg";
+import arshan from "../../../assets/tourFormats/arshan.png";
+import reka from "../../../assets/tourFormats/kamennayareka.jpg";
+
 
 export type ParticleType =
-  | "lotus" | "gold_dust" | "light" | "incense" | "prayer_flags"
-  | "snow" | "leaf" | "water_drops" | "fog" | "wind"
-  | "lantern" | "city_lights" | "spark" | "neon_dots" | "confetti"
-  | "dust" | "rocks" | "mud" | "sparks" | "trail";
+  | "lotus"
+  | "gold_dust"
+  | "light"
+  | "incense"
+  | "prayer_flags"
+  | "snow"
+  | "leaf"
+  | "water_drops"
+  | "fog"
+  | "wind"
+  | "lantern"
+  | "city_lights"
+  | "spark"
+  | "neon_dots"
+  | "confetti"
+  | "dust"
+  | "rocks"
+  | "mud"
+  | "sparks"
+  | "trail";
 
 export type TourFormat = {
   id: string;
@@ -26,7 +49,8 @@ export const TOUR_FORMATS: TourFormat[] = [
     subtitle: "Буддийская Бурятия",
     bgImage: nebo,
     mainImage: hram,
-    description: "Буддийские дацаны, святые источники и места силы. Тур для тех, кто ищет спокойствие и внутреннюю гармонию.",
+    description:
+      "Буддийские дацаны, святые источники и места силы. Тур для тех, кто ищет спокойствие и внутреннюю гармонию.",
     particles: ["lotus", "gold_dust", "light", "incense", "prayer_flags"],
     accentColor: "#D4AF37",
     musicFile: "meditation",
@@ -35,31 +59,34 @@ export const TOUR_FORMATS: TourFormat[] = [
     id: "nature",
     title: "Природа Бурятии",
     subtitle: "Байкал и горы",
-    bgImage: nebo,
-    mainImage: hram,
-    description: "Байкал, Саяны, горные перевалы и бескрайние степи. Дикая природа и путешествие вне цивилизации.",
+    bgImage: reka,
+    mainImage: arshan,
+    description:
+      "Байкал, Саяны, горные перевалы и бескрайние степи. Дикая природа и путешествие вне цивилизации.",
     particles: ["snow", "leaf", "water_drops", "fog", "wind"],
     accentColor: "#2E8B57",
     musicFile: "nature",
   },
   {
-    id: "city",
-    title: "Городские похождения",
-    subtitle: "Столица Бурятии",
-    bgImage: nebo,
-    mainImage: hram,
-    description: "История, культура и современная жизнь столицы. Уникальное сочетание Азии и России, гастрономия и городские легенды.",
-    particles: ["lantern", "city_lights", "spark", "confetti", "neon_dots"],
-    accentColor: "#FF6B35",
-    musicFile: "city",
+    id: "horse_tours",
+    title: "Конные похождения",
+    subtitle: "Конные туры по Улан-Удэ и окрестностям",
+    bgImage: step,
+    mainImage: loshad,
+    description:
+      "Путешествия верхом по степям. Бурятские традиции коневодства, природа региона и настоящая атмосфера кочевой культуры.",
+    particles: ["lotus", "gold_dust", "light", "incense", "prayer_flags"],
+    accentColor: "#C47A2C",
+    musicFile: "horse_tour",
   },
   {
     id: "jeep",
     title: "Джип-приключения",
     subtitle: "Дороги без дорог",
-    bgImage: nebo,
-    mainImage: hram,
-    description: "Горные дороги, броды и перевалы — места, куда невозможно добраться обычным транспортом.",
+    bgImage: skali,
+    mainImage: jimny,
+    description:
+      "Горные дороги, броды и перевалы — места, куда невозможно добраться обычным транспортом.",
     particles: ["dust", "rocks", "mud", "sparks", "trail"],
     accentColor: "#C0392B",
     musicFile: "adventure",
