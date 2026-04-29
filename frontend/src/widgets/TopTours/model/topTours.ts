@@ -1,9 +1,9 @@
-import baikal from "../../../assets/topTours/baikal.jpg";
-import bereg from "../../../assets/topTours/bereg.png";
-import yurta from "../../../assets/topTours/yurta.png";
-import step from "../../../assets/topTours/step.jpg";
-import buuzy from "../../../assets/topTours/buuzy.png";
-import fon from "../../../assets/topTours/cherniyFon.jpg";
+import baikal from "../../../assets/topTours/baikal.webp";
+import bereg from "../../../assets/topTours/bereg.webp";
+import yurta from "../../../assets/topTours/yurta.webp";
+import step from "../../../assets/topTours/step.webp";
+import buuzy from "../../../assets/topTours/buuzy.webp";
+import fon from "../../../assets/topTours/cherniyFon.webp";
 
 
 export type topTour = {

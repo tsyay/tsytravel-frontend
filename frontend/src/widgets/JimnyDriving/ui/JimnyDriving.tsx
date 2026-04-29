@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import styles from "./jimnyDriving.module.css";
-import terrain from "../../../assets/jimnyTour/terrain.png";
-import jimny90 from "../../../assets/jimnyTour/jimny90.png";
-import background from "../../../assets/jimnyTour/goriDriving.jpg";
+import terrain from "../../../assets/jimnyTour/terrain.webp";
+import jimny90 from "../../../assets/jimnyTour/jimny90.webp";
+import background from "../../../assets/jimnyTour/goriDriving.webp";
 
 export function JimnyDriving() {
   const sectionRef = useRef<HTMLElement>(null);

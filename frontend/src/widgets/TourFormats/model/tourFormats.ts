@@ -1,11 +1,11 @@
 import nebo from "../../../assets/tourFormats/nebo.avif";
-import hram from "../../../assets/tourFormats/hram.png";
-import jimny from "../../../assets/tourFormats/jimny.png";
-import skali from "../../../assets/tourFormats/skali.jpg";
-import loshad from "../../../assets/tourFormats/loshad.png";
-import step from "../../../assets/tourFormats/step.jpg";
-import arshan from "../../../assets/tourFormats/arshan.png";
-import reka from "../../../assets/tourFormats/kamennayareka.jpg";
+import hram from "../../../assets/tourFormats/hram.webp";
+import jimny from "../../../assets/tourFormats/jimny.webp";
+import skali from "../../../assets/tourFormats/skali.webp";
+import loshad from "../../../assets/tourFormats/loshad.webp";
+import step from "../../../assets/tourFormats/step.webp";
+import arshan from "../../../assets/tourFormats/arshan.webp";
+import reka from "../../../assets/tourFormats/kamennayareka.webp";
 
 
 export type ParticleType =

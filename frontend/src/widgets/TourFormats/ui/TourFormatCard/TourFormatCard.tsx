@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from "react";
+import { useRef, useCallback } from "react";
 import type { TourFormat } from "../../model/tourFormats";
 import styles from "./tourFormatCard.module.css";
 
@@ -11,7 +11,7 @@ function fadeVolume(
   ms: number,
   onDone?: () => void
 ) {
-  const steps = 30;
+  const steps = 20;
   const dt = ms / steps;
   const delta = (to - from) / steps;
   let v = from;
@@ -27,11 +27,13 @@ function fadeVolume(
 }
 
 export function TourFormatCard({ format }: Props) {
-  const [hovered, setHovered] = useState(false);
+  const cardRef = useRef<HTMLElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const onEnter = useCallback(() => {
-    setHovered(true);
+    // Прямая работа с DOM — без setState, без ре-рендера
+    cardRef.current?.classList.add(styles.active);
+
     const a = audioRef.current;
     if (!a) return;
     a.currentTime = 0;
@@ -41,7 +43,8 @@ export function TourFormatCard({ format }: Props) {
   }, []);
 
   const onLeave = useCallback(() => {
-    setHovered(false);
+    cardRef.current?.classList.remove(styles.active);
+
     const a = audioRef.current;
     if (!a) return;
     fadeVolume(a, 0.45, 0, 500, () => {
@@ -52,21 +55,31 @@ export function TourFormatCard({ format }: Props) {
 
   return (
     <article
-      className={`${styles.card} ${hovered ? styles.active : ""}`}
+      ref={cardRef}
+      className={styles.card}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
     >
-      {/* Размытый фон */}
       <div className={styles.bgLayer}>
-        <img src={format.bgImage} alt="" className={styles.bgImage} draggable={false} />
+        <img
+          src={format.bgImage}
+          alt=""
+          className={styles.bgImage}
+          draggable={false}
+          decoding="async"
+        />
       </div>
 
-      {/* Главная картинка */}
       <div className={styles.imageClip}>
-        <img src={format.mainImage} alt={format.title} className={styles.image} draggable={false} />
+        <img
+          src={format.mainImage}
+          alt={format.title}
+          className={styles.image}
+          draggable={false}
+          decoding="async"
+        />
       </div>
 
-      {/* Виньетка */}
       <div className={styles.vignette} />
 
       <footer className={styles.footer}>

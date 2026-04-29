@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styles from "./jimnyHero.module.css";
-import jimny from "../../../assets/tourFormats/jimny.png";
-import gori from "../../../assets/backgrounds/gori.png";
+import jimny from "../../../assets/tourFormats/jimny.webp";
+import gori from "../../../assets/backgrounds/gori.webp";
 
 
 export function JimnyHero() {

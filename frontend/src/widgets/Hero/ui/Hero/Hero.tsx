@@ -6,7 +6,7 @@ import { heroSlides } from "../../model/Slide/slide";
 import { Slide } from "../Slide/Slide";
 import style from "./hero.module.css";
 
-import tourist from "../../../../assets/hero/tourist.png"
+import tourist from "../../../../assets/hero/tourist.webp"
 import { CTAButton } from "../CTA-Button/CTAButton";
 
 export function Hero() {

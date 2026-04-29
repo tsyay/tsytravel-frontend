@@ -1,7 +1,7 @@
 import styles from "./WhyBuryatia.module.css";
-import baikal from "../../../assets/WhyBuryatia/baikal.jpg";
-import budda from "../../../assets/WhyBuryatia/budda.png";
-import bg from "../../../assets/backgrounds/buryatia_no_background.png"
+import baikal from "../../../assets/WhyBuryatia/baikal.webp";
+import budda from "../../../assets/WhyBuryatia/budda.webp";
+import bg from "../../../assets/backgrounds/buryatia_no_background.webp"
 const PHOTOS = [
   {
     src: baikal,

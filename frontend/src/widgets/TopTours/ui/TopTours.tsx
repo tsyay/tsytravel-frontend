@@ -1,7 +1,7 @@
 import style from "./topTours.module.css";
 import { TOP_TOURS } from "../model/topTours";
 import { TopToursCard } from "./TopTourCard/TopToursCard";
-import sayani from "../../../assets/hero/sayani.jpg";
+import sayani from "../../../assets/hero/sayani.webp";
 
 export function TopTours() {
   return (
