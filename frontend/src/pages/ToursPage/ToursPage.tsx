@@ -6,6 +6,7 @@ import { ToursList } from "../../widgets/ToursList";
 import { useFilteredTours } from "../../features/tours-filter";
 import { MOCK_TOURS } from "../../entities/tour/model/tours.mock";
 import styles from "./toursPage.module.css";
+import { DevBanner } from "../../widgets/DevBanner";
 
 export default function ToursPage() {
   const {
@@ -46,6 +47,7 @@ export default function ToursPage() {
             onSort={setSort}
             onReset={resetFilters}
           />
+          <DevBanner />
         </div>
       </section>
     </div>

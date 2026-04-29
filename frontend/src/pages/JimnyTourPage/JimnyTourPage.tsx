@@ -1,3 +1,4 @@
+import { DevBanner } from "../../widgets/DevBanner";
 import Header from "../../widgets/Header";
 import { JimnyDriving } from "../../widgets/JimnyDriving";
 import { JimnyHero } from "../../widgets/JimnyHero";
@@ -14,6 +15,7 @@ export default function JimnyTourPage() {
         <section data-header-theme="light">
           <JimnyRouteMap />
         </section>
+        <DevBanner />
     </>
   );
 }
