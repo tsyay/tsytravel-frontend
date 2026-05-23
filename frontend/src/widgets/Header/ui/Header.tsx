@@ -1,6 +1,7 @@
 // Header.tsx
 import { useEffect, useState } from "react";
 import styles from "./header.module.css";
+import { Link } from "react-router-dom";
 
 const NAV_LINKS = [
   { label: "Туры", href: "/tours" },
@@ -13,7 +14,9 @@ export function Header() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    const lightSections = document.querySelectorAll("[data-header-theme='light']");
+    const lightSections = document.querySelectorAll(
+      "[data-header-theme='light']",
+    );
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -26,10 +29,12 @@ export function Header() {
       {
         rootMargin: "-20px 0px -90% 0px",
         threshold: 0,
-      }
+      },
     );
 
-    const darkSections = document.querySelectorAll("[data-header-theme='dark']");
+    const darkSections = document.querySelectorAll(
+      "[data-header-theme='dark']",
+    );
     const darkObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,7 +46,7 @@ export function Header() {
       {
         rootMargin: "-20px 0px -90% 0px",
         threshold: 0,
-      }
+      },
     );
 
     lightSections.forEach((s) => observer.observe(s));
@@ -55,21 +60,24 @@ export function Header() {
 
   return (
     <header className={styles.wrapper}>
-      <a href="/" className={`${styles.logo} ${dark ? styles.logoDark : ""}`}>
+      <Link to="/" className={styles.logo}>
         КОЧЕВНИКИ
-      </a>
+      </Link>
 
       <nav className={`${styles.nav} ${dark ? styles.navDark : ""}`}>
         <ul className={styles.links}>
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className={`${styles.link} ${dark ? styles.linkDark : ""}`}>
+              <Link to={link.href} className={styles.link}>
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
-        <a href="#booking" className={`${styles.cta} ${dark ? styles.ctaDark : ""}`}>
+        <a
+          href="#booking"
+          className={`${styles.cta} ${dark ? styles.ctaDark : ""}`}
+        >
           Забронировать
         </a>
       </nav>

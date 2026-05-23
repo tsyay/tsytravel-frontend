@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "./devBanner.module.css";
 
 const PAGES = [
-  { label: "Главная", href: "/", emoji: "🏠" },
-  { label: "Все туры", href: "/tours", emoji: "🗺" },
-  { label: "Джип-тур", href: "/tours/jimny", emoji: "🚙" },
+  { label: "Главная", to: "/", emoji: "🏠" },
+  { label: "Все туры", to: "/tours", emoji: "🗺" },
+  { label: "Джип-тур", to: "/tours/jimny", emoji: "🚙" },
 ];
 
 const JOKES = [
@@ -57,13 +58,13 @@ export function DevBanner() {
 
           <div className={styles.pages}>
             {PAGES.map((page) => (
-              <a key={page.href} href={page.href} className={styles.pageLink}>
+              <Link key={page.to} to={page.to} className={styles.pageLink}>
                 <span className={styles.pageEmoji}>{page.emoji}</span>
                 <span className={styles.pageLabel}>{page.label}</span>
                 <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className={styles.pageArrow}>
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
+              </Link>
             ))}
           </div>
 
