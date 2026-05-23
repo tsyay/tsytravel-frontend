@@ -1,24 +1,24 @@
+import { createBrowserRouter } from "react-router-dom";
 import { MainLayout } from "../shared/layout/MainLayout/MainLayout";
 import MainPage from "../pages/MainPage/MainPage";
 import JimnyTourPage from "../pages/JimnyTourPage/JimnyTourPage";
 import ToursPage from "../pages/ToursPage/ToursPage";
-import { createHashRouter } from "react-router-dom";
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
   {
     element: <MainLayout />,
     children: [
       {
         path: "/",
-        element: <MainPage />, // Hero сам занимает весь экран
-      },
-      {
-        path: "/tours/jimny",
-        element: <JimnyTourPage />,
+        element: <MainPage />,
       },
       {
         path: "/tours",
         element: <ToursPage />,
+      },
+      {
+        path: "/tours/jimny",
+        element: <JimnyTourPage />,
       },
     ],
   },
